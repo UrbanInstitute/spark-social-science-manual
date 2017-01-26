@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Spark Social Science Manual</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="Spark Social Science Manual">
+  <meta name="generator" content="bookdown 0.1.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Spark Social Science Manual" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="rstudio/spark-social-science-manual" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Spark Social Science Manual" />
+  
+  
+  
+
+<meta name="author" content="Research Programming, The Urban Institute">
+
+<meta name="date" content="2016-09-16">
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="understanding-spark.html">
+<link rel="next" href="econometrics-and-large-scale-data.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Spark Social Science Manual</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#outgrowing-the-server-when-should-social-scientists-consider-distributing-computing"><i class="fa fa-check"></i><b>1.1</b> Outgrowing the server: When should social scientists consider distributing computing?</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#making-distributed-computing-straightforward-cost-effective"><i class="fa fa-check"></i><b>1.2</b> Making distributed computing straightforward &amp; cost-effective</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-started-with-spark.html"><a href="getting-started-with-spark.html"><i class="fa fa-check"></i><b>2</b> Getting Started with Spark</a><ul>
+<li class="chapter" data-level="2.1" data-path="getting-started-with-spark.html"><a href="getting-started-with-spark.html#what-about-stata-and-sas"><i class="fa fa-check"></i><b>2.1</b> What About Stata and SAS?</a></li>
+<li class="chapter" data-level="2.2" data-path="getting-started-with-spark.html"><a href="getting-started-with-spark.html#choosing-between-sparkr-and-pyspark"><i class="fa fa-check"></i><b>2.2</b> Choosing Between SparkR and PySpark</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="understanding-spark.html"><a href="understanding-spark.html"><i class="fa fa-check"></i><b>3</b> Understanding Spark</a><ul>
+<li class="chapter" data-level="3.1" data-path="understanding-spark.html"><a href="understanding-spark.html#what-makes-distributed-processing-different"><i class="fa fa-check"></i><b>3.1</b> What Makes Distributed Processing Different?</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="sorting-distributed-data.html"><a href="sorting-distributed-data.html"><i class="fa fa-check"></i><b>4</b> Sorting Distributed Data</a></li>
+<li class="chapter" data-level="5" data-path="econometrics-and-large-scale-data.html"><a href="econometrics-and-large-scale-data.html"><i class="fa fa-check"></i><b>5</b> Econometrics and Large-scale Data</a><ul>
+<li class="chapter" data-level="5.1" data-path="econometrics-and-large-scale-data.html"><a href="econometrics-and-large-scale-data.html#implications-for-hypothesis-testing"><i class="fa fa-check"></i><b>5.1</b> Implications for Hypothesis Testing</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="econometrics-and-large-scale-data.html"><a href="econometrics-and-large-scale-data.html#statistical-v.-practical-significance"><i class="fa fa-check"></i><b>5.1.1</b> Statistical v. Practical Significance</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="econometrics-and-large-scale-data.html"><a href="econometrics-and-large-scale-data.html#computational-implications"><i class="fa fa-check"></i><b>5.2</b> Computational Implications</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="econometrics-and-large-scale-data-1.html"><a href="econometrics-and-large-scale-data-1.html"><i class="fa fa-check"></i><b>6</b> Econometrics and Large-scale Data</a><ul>
+<li class="chapter" data-level="6.1" data-path="econometrics-and-large-scale-data-1.html"><a href="econometrics-and-large-scale-data-1.html#implications-for-hypothesis-testing-1"><i class="fa fa-check"></i><b>6.1</b> Implications for Hypothesis Testing</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="econometrics-and-large-scale-data-1.html"><a href="econometrics-and-large-scale-data-1.html#statistical-v.-practical-significance-1"><i class="fa fa-check"></i><b>6.1.1</b> Statistical v. Practical Significance</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="econometrics-and-large-scale-data-1.html"><a href="econometrics-and-large-scale-data-1.html#computational-implications-1"><i class="fa fa-check"></i><b>6.2</b> Computational Implications</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>7</b> Appendix</a><ul>
+<li class="chapter" data-level="7.1" data-path="appendix.html"><a href="appendix.html#unbounded-sample-size-statistical-significance-sketch-of-proof"><i class="fa fa-check"></i><b>7.1</b> Unbounded sample size &amp; statistical significance – sketch of proof</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Spark Social Science Manual</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="sorting-distributed-data" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> Sorting Distributed Data</h1>
+<p>When working with datasets of sizes traditionally seen in social science research, sorting the data by some value rule is a relatively easy task. When all of the data is in the memory of one system, sorting rows is close to trivial.</p>
+<p>Massive data in a distributed environment, in which perhaps many millions of observations are distributed across hundreds of machines, sorting that data becomes an enormously expensive operation. Spark needs to first consider your sorting criteria (e.g. dates, alphabetical, numerical, ascending, descending), then search through all of the systems in the cluster to figure out what and where the first and last values are, what the intervals are between values and whether there are duplicates or not. From there it has to estimate where all of the data should go and where to shift the values of which this data will take the spot.</p>
+<p>If January is located next to December in the ranking of month values and Spark finds that February should be in that ranking, for example, it needs to determine where to shift December before the task can be completed. Each observation takes up space in memory: Spark cannot simply hold every observation in a single machine until it identifies where a particular observations should be placed. The data, therefore, becomes more spread out when information is “shuffled” since Spark holds observations elsewhere until it determines where they should be placed.</p>
+<p>Additionally, when the data is on multiple machines, shuffling can force data onto the hard drive in the course of it being shifted by Spark. Hard drive traffic is much slower than simply moving data around within memory, as might happen when you sort an Excel column.</p>
+<p>Any operation that causes a shuffling of data, or a “shuffle,” can be very costly in terms of processing power, hard drive traffic and system memory. Researchers should understand that several tasks that can be performed in Spark require a shuffle, and that this shuffling may be obscured. Spark operations that do require a shuffle include, for example, are joining datasets on equal values of some specified column and finding unique values of a column. Some shuffling is often inevitable; just note that shuffles will be one of the largest drivers of how long your operations take to finish.</p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="understanding-spark.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="econometrics-and-large-scale-data.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/04-sorting.Rmd",
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Spark Social Science Manual</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="Spark Social Science Manual">
+  <meta name="generator" content="bookdown 0.1.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Spark Social Science Manual" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="rstudio/spark-social-science-manual" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Spark Social Science Manual" />
+  
+  
+  
+
+<meta name="author" content="Research Programming, The Urban Institute">
+
+<meta name="date" content="2016-09-16">
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="getting-started-with-spark.html">
+<link rel="next" href="sorting-distributed-data.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Spark Social Science Manual</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#outgrowing-the-server-when-should-social-scientists-consider-distributing-computing"><i class="fa fa-check"></i><b>1.1</b> Outgrowing the server: When should social scientists consider distributing computing?</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#making-distributed-computing-straightforward-cost-effective"><i class="fa fa-check"></i><b>1.2</b> Making distributed computing straightforward &amp; cost-effective</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-started-with-spark.html"><a href="getting-started-with-spark.html"><i class="fa fa-check"></i><b>2</b> Getting Started with Spark</a><ul>
+<li class="chapter" data-level="2.1" data-path="getting-started-with-spark.html"><a href="getting-started-with-spark.html#what-about-stata-and-sas"><i class="fa fa-check"></i><b>2.1</b> What About Stata and SAS?</a></li>
+<li class="chapter" data-level="2.2" data-path="getting-started-with-spark.html"><a href="getting-started-with-spark.html#choosing-between-sparkr-and-pyspark"><i class="fa fa-check"></i><b>2.2</b> Choosing Between SparkR and PySpark</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="understanding-spark.html"><a href="understanding-spark.html"><i class="fa fa-check"></i><b>3</b> Understanding Spark</a><ul>
+<li class="chapter" data-level="3.1" data-path="understanding-spark.html"><a href="understanding-spark.html#what-makes-distributed-processing-different"><i class="fa fa-check"></i><b>3.1</b> What Makes Distributed Processing Different?</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="sorting-distributed-data.html"><a href="sorting-distributed-data.html"><i class="fa fa-check"></i><b>4</b> Sorting Distributed Data</a></li>
+<li class="chapter" data-level="5" data-path="econometrics-and-large-scale-data.html"><a href="econometrics-and-large-scale-data.html"><i class="fa fa-check"></i><b>5</b> Econometrics and Large-scale Data</a><ul>
+<li class="chapter" data-level="5.1" data-path="econometrics-and-large-scale-data.html"><a href="econometrics-and-large-scale-data.html#implications-for-hypothesis-testing"><i class="fa fa-check"></i><b>5.1</b> Implications for Hypothesis Testing</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="econometrics-and-large-scale-data.html"><a href="econometrics-and-large-scale-data.html#statistical-v.-practical-significance"><i class="fa fa-check"></i><b>5.1.1</b> Statistical v. Practical Significance</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="econometrics-and-large-scale-data.html"><a href="econometrics-and-large-scale-data.html#computational-implications"><i class="fa fa-check"></i><b>5.2</b> Computational Implications</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="econometrics-and-large-scale-data-1.html"><a href="econometrics-and-large-scale-data-1.html"><i class="fa fa-check"></i><b>6</b> Econometrics and Large-scale Data</a><ul>
+<li class="chapter" data-level="6.1" data-path="econometrics-and-large-scale-data-1.html"><a href="econometrics-and-large-scale-data-1.html#implications-for-hypothesis-testing-1"><i class="fa fa-check"></i><b>6.1</b> Implications for Hypothesis Testing</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="econometrics-and-large-scale-data-1.html"><a href="econometrics-and-large-scale-data-1.html#statistical-v.-practical-significance-1"><i class="fa fa-check"></i><b>6.1.1</b> Statistical v. Practical Significance</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="econometrics-and-large-scale-data-1.html"><a href="econometrics-and-large-scale-data-1.html#computational-implications-1"><i class="fa fa-check"></i><b>6.2</b> Computational Implications</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>7</b> Appendix</a><ul>
+<li class="chapter" data-level="7.1" data-path="appendix.html"><a href="appendix.html#unbounded-sample-size-statistical-significance-sketch-of-proof"><i class="fa fa-check"></i><b>7.1</b> Unbounded sample size &amp; statistical significance – sketch of proof</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Spark Social Science Manual</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="understanding-spark" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Understanding Spark</h1>
+<div id="what-makes-distributed-processing-different" class="section level2">
+<h2><span class="header-section-number">3.1</span> What Makes Distributed Processing Different?</h2>
+<p>The analysis that researchers can perform, and the ways in which that analysis is carried out, can change significantly when data is too large to be loaded onto a single machine. As a simple example, let’s examine how one would calculate the standard deviation of a numerical variable in a distributed environment.</p>
+<p>We have one column of data with 22 rows of values. Assume for simplicity that this data is too large to fit onto a single machine and is, therefore, distributed across five machines as follows:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Machine 1</th>
+<th>Machine 2</th>
+<th>Machine 3</th>
+<th>Machine 4</th>
+<th>Machine 5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math display">\[15\]</span></td>
+<td><span class="math display">\[23\]</span></td>
+<td><span class="math display">\[5\]</span></td>
+<td><span class="math display">\[33\]</span></td>
+<td><span class="math display">\[1\]</span></td>
+</tr>
+<tr class="even">
+<td><span class="math display">\[6\]</span></td>
+<td><span class="math display">\[7\]</span></td>
+<td><span class="math display">\[4\]</span></td>
+<td><span class="math display">\[27\]</span></td>
+<td><span class="math display">\[0\]</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math display">\[9\]</span></td>
+<td><span class="math display">\[2\]</span></td>
+<td><span class="math display">\[6\]</span></td>
+<td><span class="math display">\[20\]</span></td>
+<td><span class="math display">\[19\]</span></td>
+</tr>
+<tr class="even">
+<td><span class="math display">\[10\]</span></td>
+<td><span class="math display">\[6\]</span></td>
+<td></td>
+<td><span class="math display">\[11\]</span></td>
+<td><span class="math display">\[10\]</span></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><span class="math display">\[17\]</span></td>
+<td></td>
+<td><span class="math display">\[9\]</span></td>
+<td><span class="math display">\[10\]</span></td>
+</tr>
+</tbody>
+</table>
+<p>Spark begins calculating the standard deviation of the variable by directing each machine to calculate both the sum of the variable and the number of observations across each machine:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th>Machine 1</th>
+<th>Machine 2</th>
+<th>Machine 3</th>
+<th>Machine 4</th>
+<th>Machine 5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Sum</strong></td>
+<td><span class="math display">\[40\]</span></td>
+<td><span class="math display">\[55\]</span></td>
+<td><span class="math display">\[15\]</span></td>
+<td><span class="math display">\[100\]</span></td>
+<td><span class="math display">\[40\]</span></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Count</strong></td>
+<td><span class="math display">\[4\]</span></td>
+<td><span class="math display">\[5\]</span></td>
+<td><span class="math display">\[3\]</span></td>
+<td><span class="math display">\[5\]</span></td>
+<td><span class="math display">\[5\]</span></td>
+</tr>
+</tbody>
+</table>
+<p>Each machine then returns its sum and count to the central manager (called the “master”). The <strong>reduced</strong> data described in the table above is sufficiently small to fit onto the single master machine. Even a massive cluster with 8,000 machines would aggregate only 16,000 values, a number which a single machine could easily hold.</p>
+<p>The master then uses the reduced data to calculate and return the mean for the entire column (equal to 11.36) to each machine, which then square the difference for each value:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Machine 1</th>
+<th>Machine 2</th>
+<th>Machine 3</th>
+<th>Machine 4</th>
+<th>Machine 5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math display">\[(15-11.36)^2\]</span></td>
+<td><span class="math display">\[(23-11.36)^2\]</span></td>
+<td><span class="math display">\[(5-11.36)^2\]</span></td>
+<td><span class="math display">\[(33-11.36)^2\]</span></td>
+<td><span class="math display">\[(1-11.36)^2\]</span></td>
+</tr>
+<tr class="even">
+<td><span class="math display">\[(6-11.36)^2\]</span></td>
+<td><span class="math display">\[(7-11.36)^2\]</span></td>
+<td><span class="math display">\[(4-11.36)^2\]</span></td>
+<td><span class="math display">\[(27-11.36)^2\]</span></td>
+<td><span class="math display">\[(0-11.36)^2\]</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math display">\[(9-11.36)^2\]</span></td>
+<td><span class="math display">\[(2-11.36)^2\]</span></td>
+<td><span class="math display">\[(6-11.36)^2\]</span></td>
+<td><span class="math display">\[(20-11.36)^2\]</span></td>
+<td><span class="math display">\[(19-11.36)^2\]</span></td>
+</tr>
+<tr class="even">
+<td><span class="math display">\[(10-11.36)^2\]</span></td>
+<td><span class="math display">\[(6-11.36)^2\]</span></td>
+<td></td>
+<td><span class="math display">\[(11-11.36)^2\]</span></td>
+<td><span class="math display">\[(10-11.36)^2\]</span></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><span class="math display">\[(17-11.36)^2\]</span></td>
+<td></td>
+<td><span class="math display">\[(9-11.36)^2\]</span></td>
+<td><span class="math display">\[(10-11.36)^2\]</span></td>
+</tr>
+</tbody>
+</table>
+<p>After this there is another sum and count operation that is returned to the master machine:</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>Machine 1</th>
+<th>Machine 2</th>
+<th>Machine 3</th>
+<th>Machine 4</th>
+<th>Machine 5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td><span class="math display">\[13.2496\]</span></td>
+<td><span class="math display">\[135.4896\]</span></td>
+<td><span class="math display">\[40.4496\]</span></td>
+<td><span class="math display">\[468.2896\]</span></td>
+<td><span class="math display">\[107.3296\]</span></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><span class="math display">\[28.7296\]</span></td>
+<td><span class="math display">\[19.0096\]</span></td>
+<td><span class="math display">\[54.1696\]</span></td>
+<td><span class="math display">\[244.6096\]</span></td>
+<td><span class="math display">\[129.0496\]</span></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><span class="math display">\[5.5696\]</span></td>
+<td><span class="math display">\[87.6096\]</span></td>
+<td><span class="math display">\[28.7296\]</span></td>
+<td><span class="math display">\[74.6496\]</span></td>
+<td><span class="math display">\[58.3696\]</span></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><span class="math display">\[1.8496\]</span></td>
+<td><span class="math display">\[28.7296\]</span></td>
+<td></td>
+<td><span class="math display">\[0.1296\]</span></td>
+<td><span class="math display">\[1.8496\]</span></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td><span class="math display">\[31.8096\]</span></td>
+<td></td>
+<td><span class="math display">\[5.5696\]</span></td>
+<td><span class="math display">\[1.8496\]</span></td>
+</tr>
+<tr class="even">
+<td><strong>Sum</strong></td>
+<td><span class="math display">\[49.3984\]</span></td>
+<td><span class="math display">\[302.648\]</span></td>
+<td><span class="math display">\[123.3488\]</span></td>
+<td><span class="math display">\[793.248\]</span></td>
+<td><span class="math display">\[298.448\]</span></td>
+</tr>
+<tr class="odd">
+<td><strong>Count</strong></td>
+<td><span class="math display">\[4\]</span></td>
+<td><span class="math display">\[5\]</span></td>
+<td><span class="math display">\[3\]</span></td>
+<td><span class="math display">\[5\]</span></td>
+<td><span class="math display">\[5\]</span></td>
+</tr>
+</tbody>
+</table>
+<p>The master machine then uses these values to calculate the mean again, followed by the square root, resulting in the standard deviation of 8.44. While computing the standard deviation of a numerical variable is a relatively trivial operation for Spark to complete, other, more involved operations clearly could become difficult or even impossible to complete in a distributed environment.<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a></p>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="3">
+<li id="fn3"><p>This is a fairly simple illustration of how Spark generally works behind the scenes: some command is sent to each machine to <em>map</em> to the data it holds, then the results are <em>reduced</em> and returned to the master machine. In fact, the aptly-named predecessor to Spark is called MapReduce.<a href="understanding-spark.html#fnref3">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="getting-started-with-spark.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="sorting-distributed-data.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/03-method.Rmd",
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
