@@ -1,0 +1,15 @@
+# Appendix
+
+## Unbounded sample size & statistical significance – sketch of proof
+
+Let the sample mean, $\hat{\mu}$, be the parameter estimate for our mean parameter $\mu$ and the null hypothesis of the t-test be $H_0$: $/mu = 0$. The test statistic is given by $\hat{\mu} / (\hat{\sigma} / \sqrt{n})$. Remember that the p-value is determined by the test statistic and the t-distribution with $(n – 2)$ degrees of freedom in this case. By the Central Limit Theorem, $\sqrt{n}*(\hat{\mu}-\mu) \rightarrow N(0,\sigma^2)$ as $n \rightarrow \infty$, or written differently as $\hat{\mu} \rightarrow \mu + \frac{\sigma}{\sqrt{n}}N(0,1)$. Implicitly, $\hat{\mu} = \mu + O(\frac{1}{\sqrt{n}})$ and $\hat{sigma} = \sigma + O(\frac{1}{\sqrt{n}})$. By substitution,
+
+$$\frac{\hat{\mu}}{\hat{\sigma}/\sqrt{n}} = \sqrt{n}\frac{\hat{\mu}}{\hat{\sigma}}$$
+$$= \sqrt{n}*\frac{\mu + O(n^{-1/2})}{\sigma + O(n^{-1/2})}$$
+$$= \sqrt{n}[\frac{\mu}{\sigma}+O(n^{-1/2})]$$
+$$= \sqrt{n}*\frac{\mu}{\sigma}+O(1)$$
+
+Therefore, the test statistic will approach positive or negative infinity at a constant rate of $\sqrt{n}$ the mean parameter does not exactly equal 0. As $n$ approaches infinity and, therefore, the degrees of freedom $(n – 2)$ approach infinity, the t-distribution converges to a standard normal distribution. So, for any nonzero mean parameter, the p-value will always approach 0 as $n$ goes to infinity.
+
+
+Similar arguments can be made for differences in means, regression coefficients or linear combinations of regression coefficients. For each parameter type, the p-value is similarly determined by the size of the parameter and the precision with which it is estimated, as well as the sample size. In each case, the p-value will converge stochastically to zero as $n$ goes to infinity (unless the true parameter value is exactly equal to the null value).

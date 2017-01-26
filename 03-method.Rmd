@@ -1,0 +1,51 @@
+# Understanding Spark
+
+## What Makes Distributed Processing Different?
+
+The analysis that researchers can perform, and the ways in which that analysis is carried out, can change significantly when data is too large to be loaded onto a single machine.  As a simple example, let’s examine how one would calculate the standard deviation of a numerical variable in a distributed environment.
+
+
+We have one column of data with 22 rows of values.  Assume for simplicity that this data is too large to fit onto a single machine and is, therefore, distributed across five machines as follows:
+
+| Machine 1 | Machine 2 | Machine 3 | Machine 4 | Machine 5 |
+| --------- | --------- | --------- | --------- | --------- |
+| $$15$$        | $$23$$        | $$5$$         | $$33$$        | $$1$$         |
+| $$6$$         | $$7$$         | $$4$$         | $$27$$        | $$0$$         |
+| $$9$$         | $$2$$         |	$$6$$         |	$$20$$        | $$19$$        |
+| $$10$$        | $$6$$         |	          | $$11$$        | $$10$$        |
+|	          | $$17$$      	|           | $$9$$      	  | $$10$$        |
+
+Spark begins calculating the standard deviation of the variable by directing each machine to calculate both the sum of the variable and the number of observations across each machine:
+
+|           | Machine 1 | Machine 2 | Machine 3 | Machine 4 | Machine 5 |
+| :-------- | --------- | --------- | --------- | --------- | --------- |
+|**Sum**        | $$40$$        | $$55$$        | $$15$$        | $$100$$       | $$40$$        |
+|**Count**      | $$4$$         | $$5$$         | $$3$$         | $$5$$         | $$5$$         |
+
+Each machine then returns its sum and count to the central manager (called the “master”).  The **reduced** data described in the table above is sufficiently small to fit onto the single master machine.  Even a massive cluster with 8,000 machines would aggregate only 16,000 values, a number which a single machine could easily hold.
+
+
+The master then uses the reduced data to calculate and return the mean for the entire column (equal to 11.36) to each machine, which then square the difference for each value:
+
+
+| Machine 1 | Machine 2 | Machine 3 | Machine 4 | Machine 5 |
+| --------- | --------- | --------- | --------- | --------- |
+| $$(15-11.36)^2$$ |	$$(23-11.36)^2$$ |	$$(5-11.36)^2$$ | $$(33-11.36)^2$$ |	$$(1-11.36)^2$$ |
+| $$(6-11.36)^2$$ |	$$(7-11.36)^2$$ |	$$(4-11.36)^2$$ | $$(27-11.36)^2$$ |	$$(0-11.36)^2$$ |
+| $$(9-11.36)^2$$ |	$$(2-11.36)^2$$ |	$$(6-11.36)^2$$ | $$(20-11.36)^2$$ |	$$(19-11.36)^2$$ |
+| $$(10-11.36)^2$$ |	$$(6-11.36)^2$$ |	           | $$(11-11.36)^2$$ |	$$(10-11.36)^2$$ |
+|	          | $$(17-11.36)^2$$ |		           | $$(9-11.36)^2$$ |	$$(10-11.36)^2$$ |
+
+After this there is another sum and count operation that is returned to the master machine:
+
+|           | Machine 1 | Machine 2 | Machine 3 | Machine 4 | Machine 5 |
+| --------- | --------- | --------- | --------- | --------- | --------- |
+|	          | $$13.2496$$ |	$$135.4896$$ | $$40.4496$$ | $$468.2896$$ |	$$107.3296$$ |
+|	          |$$28.7296$$ |	$$19.0096$$  | $$54.1696$$ | $$244.6096$$ |	$$129.0496$$ |
+|	          |$$5.5696$$  | $$87.6096$$  | $$28.7296$$ | $$74.6496$$ |	$$58.3696$$ |
+|	          |$$1.8496$$  | $$28.7296$$	 |             | $$0.1296$$ |	$$1.8496$$ |
+|	          |            | $$31.8096$$  |	           | $$5.5696$$ |	$$1.8496$$ |
+|**Sum** |	$$49.3984$$ | $$302.648$$ |	$$123.3488$$ |	$$793.248$$ |	$$298.448$$ |
+|**Count** |	$$4$$	| $$5$$	| $$3$$	| $$5$$	| $$5$$ |
+
+The master machine then uses these values to calculate the mean again, followed by the square root, resulting in the standard deviation of 8.44.  While computing the standard deviation of a numerical variable is a relatively trivial operation for Spark to complete, other, more involved operations clearly could become difficult or even impossible to complete in a distributed environment.^[This is a fairly simple illustration of how Spark generally works behind the scenes:  some command is sent to each machine to *map* to the data it holds, then the results are *reduced* and returned to the master machine.  In fact, the aptly-named predecessor to Spark is called MapReduce.]

@@ -1,0 +1,15 @@
+# Sorting Distributed Data
+
+When working with datasets of sizes traditionally seen in social science research, sorting the data by some value rule is a relatively easy task. When all of the data is in the memory of one system, sorting rows is close to trivial.
+
+
+Massive data in a distributed environment, in which perhaps many millions of observations are distributed across hundreds of machines, sorting that data becomes an enormously expensive operation. Spark needs to first consider your sorting criteria (e.g. dates, alphabetical, numerical, ascending, descending), then search through all of the systems in the cluster to figure out what and where the first and last values are, what the intervals are between values and whether there are duplicates or not. From there it has to estimate where all of the data should go and where to shift the values of which this data will take the spot.
+
+
+If January is located next to December in the ranking of month values and Spark finds that February should be in that ranking, for example, it needs to determine where to shift December before the task can be completed.  Each observation takes up space in memory: Spark cannot simply hold every observation in a single machine until it identifies where a particular observations should be placed. The data, therefore, becomes more spread out when information is "shuffled" since Spark holds observations elsewhere until it determines where they should be placed.
+
+
+Additionally, when the data is on multiple machines, shuffling can force data onto the hard drive in the course of it being shifted by Spark. Hard drive traffic is much slower than simply moving data around within memory, as might happen when you sort an Excel column. 
+
+
+Any operation that causes a shuffling of data, or a "shuffle," can be very costly in terms of processing power, hard drive traffic and system memory.  Researchers should understand that several tasks that can be performed in Spark require a shuffle, and that this shuffling may be obscured. Spark operations that do require a shuffle include, for example, are joining datasets on equal values of some specified column and finding unique values of a column. Some shuffling is often inevitable; just note that shuffles will be one of the largest drivers of how long your operations take to finish.
