@@ -1,4 +1,4 @@
-#. Sorting Distributed Data
+# Sorting Distributed Data
 
 When working with datasets of sizes traditionally seen in social science research, sorting the data by some value rule is a relatively easy task. When all of the data is in the memory of one system, sorting rows is close to trivial.
 

@@ -1,2 +1,3 @@
 book_filename: "spark-social-science-manual"
 chapter_name: "Chapter "
+output_dir: "docs"

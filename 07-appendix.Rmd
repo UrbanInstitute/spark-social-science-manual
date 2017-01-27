@@ -1,4 +1,4 @@
-#. Appendix
+# Appendix
 
 ## Unbounded sample size & statistical significance – sketch of proof
 

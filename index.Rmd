@@ -4,6 +4,8 @@ author: "Research Programming, The Urban Institute"
 date: "September 16, 2016"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
+bookdown::pdf_book:
+  keep_tex: yes
 documentclass: book
 link-citations: yes
 github-repo: rstudio/spark-social-science-manual
@@ -34,8 +36,4 @@ bookdown::gitbook:
       vk: no
       all: ['facebook', 'google', 'twitter', 'weibo', 'instapaper']
 ---
-
-# About This Project
-
-Here are some words about the Urban Institute's Spark Social Science project, generously funded by the Alfred P. Sloan Foundation.
 
