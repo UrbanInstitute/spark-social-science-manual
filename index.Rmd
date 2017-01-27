@@ -34,3 +34,7 @@ bookdown::gitbook:
       vk: no
       all: ['facebook', 'google', 'twitter', 'weibo', 'instapaper']
 ---
+
+# About This Project
+
+Here are some words about the Urban Institute's Spark Social Science project, generously funded by the Alfred P. Sloan Foundation.

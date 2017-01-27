@@ -1,4 +1,4 @@
-# Introduction {#intro}
+#. Introduction {#intro}
 
 Most social scientists perform statistical analysis on personal computers or on servers dedicated to statistical processing. While these environments do provide effective research platforms for the majority of projects, their inherent constraints on data size and processing speed limit the ability of social scientists to perform empirical analysis on large data sets.
 

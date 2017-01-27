@@ -1,4 +1,4 @@
-# Understanding Spark
+#. Understanding Spark
 
 ## What Makes Distributed Processing Different?
 

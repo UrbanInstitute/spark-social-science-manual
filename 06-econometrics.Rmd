@@ -1,4 +1,4 @@
-# Econometrics and Large-scale Data
+#. Econometrics and Large-scale Data
 
 ## Implications for Hypothesis Testing
 
