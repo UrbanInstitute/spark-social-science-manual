@@ -23,10 +23,10 @@
   
   
 
-<meta name="author" content="Research Programming, The Urban Institute Sarah Armstrong Alex C. Engler">
+<meta name="author" content="Research Programming, The Urban Institute">
 
 
-<meta name="date" content="2016-09-16">
+<meta name="date" content="2017-01-27">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -120,8 +120,8 @@
 <div id="implications-for-hypothesis-testing-1" class="section level2">
 <h2><span class="header-section-number">6.1</span> Implications for Hypothesis Testing</h2>
 <p>Policy researchers making frequentist inferences beware: when performing hypothesis tests on large-scale data, reliance on statistical significance for making meaningful assertions about the outcomes of hypothesis tests will often fail you. Any parameter that is not exactly equal to the null hypothesis value will become statistically significant as sample size, <span class="math inline">\(n\)</span>, increases infinitely, and with p-values that are much smaller in size than thresholds commonly used in social science (e.g. <span class="math inline">\(p &lt; 0.01\)</span>**). Note that, if the assumptions of a test are true and the true parameter is exactly equal to the null value, then a large sample size will not lead to a rejection of the null hypothesis.</p>
-<p>In practice, however, we can easily extract statistically significant parameter estimates from any data with a size that would require the use of Spark. A true parameter value is very unlikely to be exactly equal to a specified null in reality: consequently, an extremely large sample size can increase the magnitude of the test statistic, and drive down the p-value far past standard thresholds of statistical significance.<a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a> So, a parameter estimate that is arbitrarily close to the null value that is not statistically significant at a standard sample size (e.g. <span class="math inline">\(n = 15,000\)</span>) may become statistically significant if the number of observations drawn from the same population increased to several hundred million. While the estimate would be statistically significant, the parameter estimate would be so close in value to the null that the outcome may be uninteresting.</p>
-<p>If arbitrarily small p-values are abundant, finding p-values that are smaller in size than traditional cutoffs for significance cannot be used as compelling evidence in building an empirical argument,<a href="#fn7" class="footnoteRef" id="fnref7"><sup>7</sup></a> and policy researchers must employ alternative heuristics for making policy inferences in this context.</p>
+<p>In practice, however, we can easily extract statistically significant parameter estimates from any data with a size that would require the use of Spark. A true parameter value is very unlikely to be exactly equal to a specified null in reality: consequently, an extremely large sample size can increase the magnitude of the test statistic, and drive down the p-value far past standard thresholds of statistical significance.<a href="#fn7" class="footnoteRef" id="fnref7"><sup>7</sup></a> So, a parameter estimate that is arbitrarily close to the null value that is not statistically significant at a standard sample size (e.g. <span class="math inline">\(n = 15,000\)</span>) may become statistically significant if the number of observations drawn from the same population increased to several hundred million. While the estimate would be statistically significant, the parameter estimate would be so close in value to the null that the outcome may be uninteresting.</p>
+<p>If arbitrarily small p-values are abundant, finding p-values that are smaller in size than traditional cutoffs for significance cannot be used as compelling evidence in building an empirical argument,<a href="#fn8" class="footnoteRef" id="fnref8"><sup>8</sup></a> and policy researchers must employ alternative heuristics for making policy inferences in this context.</p>
 <div id="statistical-v.-practical-significance-1" class="section level3">
 <h3><span class="header-section-number">6.1.1</span> Statistical v. Practical Significance</h3>
 <p>One conceptual shift that many researchers will need to make when working with massive data is that inference is no longer primarily about detecting some effect, but is rather focused on examining the data for evidence of an absence of an effect. In particular, the abundance of arbitrarily small p-values in massive data analysis requires that researchers give greater importance to identifying whether an estimate is practically significant rather than its likely statistical significance (since it is likely that the majority of estimates will be statistically significant).</p>
@@ -142,9 +142,9 @@
 </div>
 <div class="footnotes">
 <hr />
-<ol start="6">
-<li id="fn6"><p>In the appendix, we provide a sketch of a proof for the claim that some mean parameter estimate of a random variable will become trivially statistically significant as n goes to infinity (if the true value is not exactly equal to the null). We can similarly show that differences in mean parameter estimates, regression coefficient estimates and linear combinations of coefficient estimates behave this way under unbounded <span class="math inline">\(n\)</span>.<a href="econometrics-and-large-scale-data-1.html#fnref6">↩</a></p></li>
-<li id="fn7"><p>While small p-values are not sufficient for making meaningful inferences, they are necessary for making inferences with statistical confidence. If a hypothesis test results in a small test statistic and, therefore, a large p-value, then: the sample is still not sufficiently large to accurately estimate the parameter, we have estimated the parameter with too little precision or the true parameter is arbitrarily close to the null or some combination of listed reasons.<a href="econometrics-and-large-scale-data-1.html#fnref7">↩</a></p></li>
+<ol start="7">
+<li id="fn7"><p>In the appendix, we provide a sketch of a proof for the claim that some mean parameter estimate of a random variable will become trivially statistically significant as n goes to infinity (if the true value is not exactly equal to the null). We can similarly show that differences in mean parameter estimates, regression coefficient estimates and linear combinations of coefficient estimates behave this way under unbounded <span class="math inline">\(n\)</span>.<a href="econometrics-and-large-scale-data-1.html#fnref7">↩</a></p></li>
+<li id="fn8"><p>While small p-values are not sufficient for making meaningful inferences, they are necessary for making inferences with statistical confidence. If a hypothesis test results in a small test statistic and, therefore, a large p-value, then: the sample is still not sufficiently large to accurately estimate the parameter, we have estimated the parameter with too little precision or the true parameter is arbitrarily close to the null or some combination of listed reasons.<a href="econometrics-and-large-scale-data-1.html#fnref8">↩</a></p></li>
 </ol>
 </div>
             </section>
