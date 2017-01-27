@@ -1,6 +1,6 @@
 --- 
 title: "Spark Social Science Manual"
-author: "Research Programming, The Urban Institute"
+author: "Research Programming, The Urban Institute \n Sarah Armstrong \n Alex C. Engler"
 date: "September 16, 2016"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
@@ -8,7 +8,7 @@ bookdown::pdf_book:
   keep_tex: yes
 documentclass: book
 link-citations: yes
-github-repo: rstudio/spark-social-science-manual
+github-repo: urbaninstitute/spark-social-science-manual
 bookdown::gitbook:
   config:
     toc:
@@ -37,6 +37,18 @@ bookdown::gitbook:
       all: ['facebook', 'google', 'twitter', 'weibo', 'instapaper']
 ---
 
-# Preface
+# About Spark Social Science
 
-Words go here! Test.
+
+The Spark Social Science is an endeavor by the [Urban Institute](http://www.urban.org/) to expand access and understanding of modern big data capabilities to social scientists and public policy reseachers.
+
+image: ![](/images/urban.png)
+
+This work is generously funded by the [Alfred P. Sloan Foundation](https://www.sloan.org).
+
+image: ![](/images/sloan.png)
+
+
+
+
+
