@@ -1,8 +1,12 @@
 # - Getting Started with Spark
 
+The open source Apache Spark project has generously taken the time to support use in R and Python, far more accessible languages than what Spark itself is written in (Scala).
+
 ## What About Stata and SAS?
 
-Unfortunately, neither Stata nor SAS are supported by Spark. The framework developed by Research Programming leverages PySpark and SparkR (the Spark forms of Python and R, respectively), enabling researchers to perform Spark operations using either language. Below are links to tutorials written by Research Programming to help guide researchers through tasks typically performed by social scientists, but driven by Spark:
+Unfortunately, neither Stata nor SAS are supported by Spark. Stata and SAS are proprietary tools, so it's very unlikely they will ever be supported by the Spark project. While there is a framework for distributed computing in SAS, this software is very expensive and also requires constantly running clusters, raising the cost above consideration for most social science organizations.
+
+Below are links to tutorials written by the Urban Institute Research Programming team to help guide researchers through tasks typically performed by social scientists, but driven by Spark:
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PySpark (Python):	https://github.com/UrbanInstitute/pyspark-tutorials
 
