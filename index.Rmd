@@ -37,18 +37,17 @@ bookdown::gitbook:
       all: ['facebook', 'google', 'twitter', 'weibo', 'instapaper']
 ---
 
-# About Spark Social Science
+# About Spark Social Science {-}
 
 
 The Spark Social Science is an endeavor by the [Urban Institute](http://www.urban.org/) to expand access and understanding of modern big data capabilities to social scientists and public policy reseachers.
 
-image: ![](images/urban.png)
+![](images/urban.png)
 
 This work is generously funded by the [Alfred P. Sloan Foundation](https://www.sloan.org).
 
-image: ![](images/sloan.png)
+![](images/sloan.png)
 
 
-
-
+This work is licensed under the [Gnu General Public License, Version 3, 29 June 2007](https://github.com/UrbanInstitute/spark-social-science-manual/blob/master/License.md).
 
