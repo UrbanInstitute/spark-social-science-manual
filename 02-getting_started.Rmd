@@ -1,4 +1,4 @@
-# Getting Started with Spark
+# - Getting Started with Spark
 
 ## What About Stata and SAS?
 
