@@ -42,11 +42,11 @@ bookdown::gitbook:
 
 The Spark Social Science is an endeavor by the [Urban Institute](http://www.urban.org/) to expand access and understanding of modern big data capabilities to social scientists and public policy reseachers.
 
-image: ![](/images/urban.png)
+image: ![](images/urban.png)
 
 This work is generously funded by the [Alfred P. Sloan Foundation](https://www.sloan.org).
 
-image: ![](/images/sloan.png)
+image: ![](images/sloan.png)
 
 
 
