@@ -33,8 +33,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="econometrics-and-large-scale-data-1.html">
 
+<link rel="next" href="intro.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -115,36 +115,23 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="appendix" class="section level1">
-<h1><span class="header-section-number">Chapter 8</span> Appendix</h1>
-<div id="unbounded-sample-size-statistical-significance-sketch-of-proof" class="section level2">
-<h2><span class="header-section-number">8.1</span> Unbounded sample size &amp; statistical significance – sketch of proof</h2>
-<p>Let the sample mean, <span class="math inline">\(\hat{\mu}\)</span>, be the parameter estimate for our mean parameter <span class="math inline">\(\mu\)</span> and the null hypothesis of the t-test be <span class="math inline">\(H_0\)</span>: <span class="math inline">\(/mu = 0\)</span>. The test statistic is given by <span class="math inline">\(\hat{\mu} / (\hat{\sigma} / \sqrt{n})\)</span>. Remember that the p-value is determined by the test statistic and the t-distribution with <span class="math inline">\((n – 2)\)</span> degrees of freedom in this case. By the Central Limit Theorem, <span class="math inline">\(\sqrt{n}*(\hat{\mu}-\mu) \rightarrow N(0,\sigma^2)\)</span> as <span class="math inline">\(n \rightarrow \infty\)</span>, or written differently as <span class="math inline">\(\hat{\mu} \rightarrow \mu + \frac{\sigma}{\sqrt{n}}N(0,1)\)</span>. Implicitly, <span class="math inline">\(\hat{\mu} = \mu + O(\frac{1}{\sqrt{n}})\)</span> and <span class="math inline">\(\hat{sigma} = \sigma + O(\frac{1}{\sqrt{n}})\)</span>. By substitution,</p>
-<p><span class="math display">\[\frac{\hat{\mu}}{\hat{\sigma}/\sqrt{n}} = \sqrt{n}\frac{\hat{\mu}}{\hat{\sigma}}\]</span> <span class="math display">\[= \sqrt{n}*\frac{\mu + O(n^{-1/2})}{\sigma + O(n^{-1/2})}\]</span> <span class="math display">\[= \sqrt{n}[\frac{\mu}{\sigma}+O(n^{-1/2})]\]</span> <span class="math display">\[= \sqrt{n}*\frac{\mu}{\sigma}+O(1)\]</span></p>
-<p>Therefore, the test statistic will approach positive or negative infinity at a constant rate of <span class="math inline">\(\sqrt{n}\)</span> the mean parameter does not exactly equal 0. As <span class="math inline">\(n\)</span> approaches infinity and, therefore, the degrees of freedom <span class="math inline">\((n – 2)\)</span> approach infinity, the t-distribution converges to a standard normal distribution. So, for any nonzero mean parameter, the p-value will always approach 0 as <span class="math inline">\(n\)</span> goes to infinity.</p>
-<p>Similar arguments can be made for differences in means, regression coefficients or linear combinations of regression coefficients. For each parameter type, the p-value is similarly determined by the size of the parameter and the precision with which it is estimated, as well as the sample size. In each case, the p-value will converge stochastically to zero as <span class="math inline">\(n\)</span> goes to infinity (unless the true parameter value is exactly equal to the null value).</p>
+<div id="header">
+<h1 class="title">Spark Social Science Manual</h1>
+<h4 class="author"><em>Research Programming, The Urban Institute</em></h4>
+<h4 class="date"><em>September 16, 2016</em></h4>
+</div>
+<div id="preface" class="section level1">
+<h1><span class="header-section-number">Chapter 1</span> Preface</h1>
+<p>Words go here! Test.</p>
 
 </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
             </section>
 
           </div>
         </div>
       </div>
-<a href="econometrics-and-large-scale-data-1.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
+<a href="intro.html" class="navigation navigation-next navigation-unique" aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
@@ -172,7 +159,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/07-appendix.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/index.Rmd",
 "text": "Edit"
 },
 "download": null,
