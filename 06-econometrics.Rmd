@@ -22,7 +22,7 @@ One of the most important indicators of practical significance is effect size (e
 
 Although the large sample size can cause the range of the confidence intervals to be extremely small, using statements of confidence to examine the importance of a parameter estimate is a useful strategy when implementing a hypothesis test that is very sensitive (e.g. the simple $H_0$: $\theta = 0$ hypothesis test). Note that this approach requires researchers to make some a priori decision about what constitutes an practically significant value in the context of their research question.
 
-## Computational Implications
+## Mathematical and Computational Implications
 
 In addition to the theoretical implications of working with massive data discussed above, analyzing data with Spark also has computational implications that policy researchers should be aware of. Spark fits linear models using iterative optimization methods that are well-suited for large-scale and distributed computation.
 

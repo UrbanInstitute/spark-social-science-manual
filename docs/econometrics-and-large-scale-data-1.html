@@ -69,7 +69,7 @@
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About Spark Social Science</a></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> - Introduction</a><ul>
-<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#outgrowing-the-server-when-should-social-scientists-consider-distributing-computing"><i class="fa fa-check"></i><b>1.1</b> Outgrowing the server: When should social scientists consider distributing computing?</a></li>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#outgrowing-the-server-when-should-social-scientists-consider-distributed-computing"><i class="fa fa-check"></i><b>1.1</b> Outgrowing the server: When should social scientists consider distributed computing?</a></li>
 <li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#making-distributed-computing-straightforward-cost-effective"><i class="fa fa-check"></i><b>1.2</b> Making distributed computing straightforward &amp; cost-effective</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="getting-started-with-spark.html"><a href="getting-started-with-spark.html"><i class="fa fa-check"></i><b>2</b> - Getting Started with Spark</a><ul>
@@ -91,7 +91,7 @@
 <li class="chapter" data-level="6.1" data-path="econometrics-and-large-scale-data-1.html"><a href="econometrics-and-large-scale-data-1.html#implications-for-hypothesis-testing-1"><i class="fa fa-check"></i><b>6.1</b> Implications for Hypothesis Testing</a><ul>
 <li class="chapter" data-level="6.1.1" data-path="econometrics-and-large-scale-data-1.html"><a href="econometrics-and-large-scale-data-1.html#statistical-v.-practical-significance-1"><i class="fa fa-check"></i><b>6.1.1</b> Statistical v. Practical Significance</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="econometrics-and-large-scale-data-1.html"><a href="econometrics-and-large-scale-data-1.html#computational-implications-1"><i class="fa fa-check"></i><b>6.2</b> Computational Implications</a></li>
+<li class="chapter" data-level="6.2" data-path="econometrics-and-large-scale-data-1.html"><a href="econometrics-and-large-scale-data-1.html#mathematical-and-computational-implications"><i class="fa fa-check"></i><b>6.2</b> Mathematical and Computational Implications</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>7</b> - Appendix</a><ul>
 <li class="chapter" data-level="7.1" data-path="appendix.html"><a href="appendix.html#unbounded-sample-size-statistical-significance-sketch-of-proof"><i class="fa fa-check"></i><b>7.1</b> Unbounded sample size &amp; statistical significance – sketch of proof</a></li>
@@ -134,8 +134,8 @@
 <p>Although the large sample size can cause the range of the confidence intervals to be extremely small, using statements of confidence to examine the importance of a parameter estimate is a useful strategy when implementing a hypothesis test that is very sensitive (e.g. the simple <span class="math inline">\(H_0\)</span>: <span class="math inline">\(\theta = 0\)</span> hypothesis test). Note that this approach requires researchers to make some a priori decision about what constitutes an practically significant value in the context of their research question.</p>
 </div>
 </div>
-<div id="computational-implications-1" class="section level2">
-<h2><span class="header-section-number">6.2</span> Computational Implications</h2>
+<div id="mathematical-and-computational-implications" class="section level2">
+<h2><span class="header-section-number">6.2</span> Mathematical and Computational Implications</h2>
 <p>In addition to the theoretical implications of working with massive data discussed above, analyzing data with Spark also has computational implications that policy researchers should be aware of. Spark fits linear models using iterative optimization methods that are well-suited for large-scale and distributed computation.</p>
 <p>Specifically, these methods use iterative algorithms to minimize the cost function of the linear model. Currently, the SparkR operation <code>spark.glm</code> uses only iteratively reweighted least squares <a href="http://spark.apache.org/docs/latest/ml-advanced.html#iteratively-reweighted-least-squares-irls">IRLS</a> to fit a linear model. This “solver” can fit a model with a maximum number of 4096 model features. PySpark similarly fits linear models using IRLS with the <code>GeneralizedLinearRegression</code> operation, which also can interpret up to 4096 feature models. If needed, there are PySpark operations that allow researchers to fit linear models with more than 4096: <code>LinearRegression</code> and <code>LogisticRegression</code> fit linear models using the Limited-memory Broyden–Fletcher–Goldfarb–Shanno <a href="http://spark.apache.org/docs/latest/ml-advanced.html#limited-memory-bfgs-l-bfgs">L-BFGS</a> algorithm. L-BFGS approximates a local minimum of the cost function of a model. However, as long as the cost function of the model is convex, the function will have only one global minimum and no other local minima—remember that the cost function for a linear regression model is a convex quadratic function. Therefore, L-BFGS will consistently compute parameter estimates for standard social science models.</p>
 
