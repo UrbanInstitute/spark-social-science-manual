@@ -1,5 +1,10 @@
 # - Understanding Spark
 
+## What is Apache Spark?
+
+Spark is a cluster computing platform, which essentially means it is going to allow us to easily work with groups of computers. Spark is much improved over its predecessor, MapReduce, in that it enables in-memory computation (in addition to parallel processing) distributed across many computers. This, along with other innovations, makes Spark very, very fast. As a result, Spark is thus excellently suited for interactively analyzing massive datasets.
+
+
 ## What Makes Distributed Processing Different?
 
 The analysis that researchers can perform, and the ways in which that analysis is carried out, can change significantly when data is too large to be loaded onto a single machine.  As a simple example, let’s examine how one would calculate the standard deviation of a numerical variable in a distributed environment.
