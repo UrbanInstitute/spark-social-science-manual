@@ -4,9 +4,9 @@ The open source Apache Spark project has generously taken the time to support us
 
 Below are links to tutorials written by the Urban Institute Research Programming team to help guide researchers through tasks typically performed by social scientists, but driven by Spark:
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PySpark (Python):	https://github.com/UrbanInstitute/pyspark-tutorials
+*  PySpark (Python):	https://github.com/UrbanInstitute/pyspark-tutorials
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SparkR (R):		https://github.com/UrbanInstitute/sparkr-tutorials
+*  SparkR (R):		https://github.com/UrbanInstitute/sparkr-tutorials
 
 **Note**: The tutorials linked above assume that readers have some familiarity with Python and R, respectively.
 

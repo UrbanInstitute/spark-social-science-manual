@@ -1,9 +1,22 @@
 # - Sorting Distributed Data
 
-When working with datasets of sizes traditionally seen in social science research, sorting the data by some value rule is a relatively easy task. When all of the data is in the memory of one system, sorting rows is close to trivial.
+## Sorting in Distributed Computing
+
+When working with datasets of sizes traditionally seen in social science research, sorting the data by some variable is an easy task. Since all of the data is in the memory of one computer, this is usually a computationally trivial task.
+
+However, when working with massive data in a distributed environment, in which perhaps many millions of observations are distributed across hundreds of machines, sorting data becomes an enormously expensive operation. Intuitively, this is because your data is __partitioned__. This means that the rows of data are spread in groups across all the different machines in your cluster. In order to perform the sort, Spark must execute a __shuffle__ operation, which repartitions the data, moving much of it between the machines of the cluster.
+
+Notably, sorts (and therefore shuffles) occur far more often than you might realize, given that they are essential part of other common operations. For instance, sorting occurs during:
+
+*  Merging
+*  Grouped Aggregations
+*  Calculating Quantiles
+
+## Shuffling Intuition
 
 
-Massive data in a distributed environment, in which perhaps many millions of observations are distributed across hundreds of machines, sorting that data becomes an enormously expensive operation. Spark needs to first consider your sorting criteria (e.g. dates, alphabetical, numerical, ascending, descending), then search through all of the systems in the cluster to figure out what and where the first and last values are, what the intervals are between values and whether there are duplicates or not. From there it has to estimate where all of the data should go and where to shift the values of which this data will take the spot.
+
+Spark needs to first consider your sorting criteria (e.g. dates, alphabetical, numerical, ascending, descending), then search through all of the systems in the cluster to figure out what and where the first and last values are, what the intervals are between values and whether there are duplicates or not. From there it has to estimate where all of the data should go and where to shift the values of which this data will take the spot.
 
 
 If January is located next to December in the ranking of month values and Spark finds that February should be in that ranking, for example, it needs to determine where to shift December before the task can be completed.  Each observation takes up space in memory: Spark cannot simply hold every observation in a single machine until it identifies where a particular observations should be placed. The data, therefore, becomes more spread out when information is "shuffled" since Spark holds observations elsewhere until it determines where they should be placed.
