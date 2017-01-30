@@ -4,13 +4,13 @@
 
 When working with datasets of sizes traditionally seen in social science research, sorting the data by some variable is an easy task. Since all of the data is in the memory of one computer, this is usually a computationally trivial task.
 
-However, when working with massive data in a distributed environment, in which perhaps many millions of observations are distributed across hundreds of machines, sorting data becomes an enormously expensive operation. Intuitively, this is because your data is __partitioned__. This means that the rows of data are spread in groups across all the different machines in your cluster. In order to perform the sort, Spark must execute a __shuffle__ operation, which repartitions the data, moving much of it between the machines of the cluster.
+However, when working with massive data in a distributed environment, in which many millions of observations are distributed across hundreds of machines, sorting data becomes an enormously expensive operation. Intuitively, this is because your data is __partitioned__. This means that the rows of data are spread in groups across all the different machines in your cluster. In order to perform the sort, Spark must execute a __shuffle__ operation, which repartitions the data, moving much of it between the machines of the cluster.
 
 Notably, sorts (and therefore shuffles) occur far more often than you might realize, given that they are essential part of other common operations. For instance, sorting occurs during:
 
-*  Merging
-*  Grouped Aggregations
-*  Calculating Quantiles
+*  Merging ([R](https://github.com/UrbanInstitute/sparkr-tutorials/blob/master/merging.md#merging-sparkr-dataframes))
+*  Grouped Aggregations ([R](https://github.com/UrbanInstitute/sparkr-tutorials/blob/master/summary-statistics.md#categorical-data))
+*  Calculating Quantiles ([R](https://github.com/UrbanInstitute/sparkr-tutorials/blob/master/summary-statistics.md#approximate-quantiles))
 
 ## Shuffling Intuition
 
