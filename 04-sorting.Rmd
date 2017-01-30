@@ -8,16 +8,13 @@ However, when working with massive data in a distributed environment, in which m
 
 Notably, sorts (and therefore shuffles) occur far more often than you might realize, given that they are essential part of other common operations. For instance, sorting occurs during:
 
-*  Merging ([R](https://github.com/UrbanInstitute/sparkr-tutorials/blob/master/merging.md#merging-sparkr-dataframes))
-*  Grouped Aggregations ([R](https://github.com/UrbanInstitute/sparkr-tutorials/blob/master/summary-statistics.md#categorical-data))
-*  Calculating Quantiles ([R](https://github.com/UrbanInstitute/sparkr-tutorials/blob/master/summary-statistics.md#approximate-quantiles))
+*  Merging ([SparkR](https://github.com/UrbanInstitute/sparkr-tutorials/blob/master/merging.md#merging-sparkr-dataframes) & [PySpark](https://github.com/UrbanInstitute/pyspark-tutorials/blob/master/merging.ipynb))
+*  Grouped Aggregations ([SparkR](https://github.com/UrbanInstitute/sparkr-tutorials/blob/master/summary-statistics.md#categorical-data) & [PySpark](https://github.com/UrbanInstitute/pyspark-tutorials/blob/master/basics%202.ipynb)
+*  Calculating Quantiles ([SparkR](https://github.com/UrbanInstitute/sparkr-tutorials/blob/master/summary-statistics.md#approximate-quantiles))
 
 ## Shuffling Intuition
 
-
-
 Spark needs to first consider your sorting criteria (e.g. dates, alphabetical, numerical, ascending, descending), then search through all of the systems in the cluster to figure out what and where the first and last values are, what the intervals are between values and whether there are duplicates or not. From there it has to estimate where all of the data should go and where to shift the values of which this data will take the spot.
-
 
 If January is located next to December in the ranking of month values and Spark finds that February should be in that ranking, for example, it needs to determine where to shift December before the task can be completed.  Each observation takes up space in memory: Spark cannot simply hold every observation in a single machine until it identifies where a particular observations should be placed. The data, therefore, becomes more spread out when information is "shuffled" since Spark holds observations elsewhere until it determines where they should be placed.
 

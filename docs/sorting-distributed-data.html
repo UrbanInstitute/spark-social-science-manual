@@ -128,9 +128,9 @@
 <p>However, when working with massive data in a distributed environment, in which many millions of observations are distributed across hundreds of machines, sorting data becomes an enormously expensive operation. Intuitively, this is because your data is <strong>partitioned</strong>. This means that the rows of data are spread in groups across all the different machines in your cluster. In order to perform the sort, Spark must execute a <strong>shuffle</strong> operation, which repartitions the data, moving much of it between the machines of the cluster.</p>
 <p>Notably, sorts (and therefore shuffles) occur far more often than you might realize, given that they are essential part of other common operations. For instance, sorting occurs during:</p>
 <ul>
-<li>Merging (<a href="https://github.com/UrbanInstitute/sparkr-tutorials/blob/master/merging.md#merging-sparkr-dataframes">R</a>)</li>
-<li>Grouped Aggregations (<a href="https://github.com/UrbanInstitute/sparkr-tutorials/blob/master/summary-statistics.md#categorical-data">R</a>)</li>
-<li>Calculating Quantiles (<a href="https://github.com/UrbanInstitute/sparkr-tutorials/blob/master/summary-statistics.md#approximate-quantiles">R</a>)</li>
+<li>Merging (<a href="https://github.com/UrbanInstitute/sparkr-tutorials/blob/master/merging.md#merging-sparkr-dataframes">SparkR</a> &amp; <a href="https://github.com/UrbanInstitute/pyspark-tutorials/blob/master/merging.ipynb">PySpark</a>)</li>
+<li>Grouped Aggregations (<a href="https://github.com/UrbanInstitute/sparkr-tutorials/blob/master/summary-statistics.md#categorical-data">SparkR</a> &amp; <a href="https://github.com/UrbanInstitute/pyspark-tutorials/blob/master/basics%202.ipynb">PySpark</a></li>
+<li>Calculating Quantiles (<a href="https://github.com/UrbanInstitute/sparkr-tutorials/blob/master/summary-statistics.md#approximate-quantiles">SparkR</a>)</li>
 </ul>
 </div>
 <div id="shuffling-intuition" class="section level2">
