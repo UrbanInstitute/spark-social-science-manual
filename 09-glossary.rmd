@@ -1,7 +1,10 @@
 # - Glossary of Terms
 
+* __Caching__ - 
 
 * __Computer Memory__ - 
+
+* __Directed Acylic Graph__ 
 
 * __Distributed Computing__ 
 
@@ -9,11 +12,16 @@
 
 * __MapReduce__ - 
 
+* __Master Node__ - 
+
 * __Parallel Processing__ - 
 
 * __Partition__ - 
+
+* __Persistance__ - 
 
 * __Shuffle__ - 
 
 * __Stochastic Gradient Descent (SGD)__ - 
 
+* __Worker Node__ - 
