@@ -4,7 +4,12 @@
 
 Spark is a cluster computing platform, which essentially means it is going to allow us to easily work with groups of computers. Spark is much improved over its predecessor, MapReduce, in that it enables in-memory computation (in addition to parallel processing) distributed across many computers. This, along with other innovations, makes Spark very, very fast. As a result, Spark is thus excellently suited for interactively analyzing massive datasets.
 
-Spark obscures a huge amount of the complexity of working with a cluster of computers for data analysis. Even when the code can look very familiar, it's critical to understand how some of the processing and calculations are happening under the hood. The differences in the distributed framework have important implications for what analyses are possible and what code is efficient. This Chapter discussing the intuitive and implications of parallel processing, while the next chapters explore sorting and advanced statistical analyses.
+Spark obscures a huge amount of the complexity of working with a cluster of computers for data analysis. Even when the code can look very familiar, it's critical to understand how some of the processing and calculations are happening under the hood. The differences in the distributed framework have important implications for what analyses are possible and what code is efficient. This Chapter discussing the intuition and implications of cluster computing and parallel processing, while the next chapters explore sorting and advanced statistical analyses.
+
+## What Makes Cluster Computing Different?
+
+Persistence / Caching 
+Master Node / Worker Nodes - show visual.
 
 
 ## What Makes Parallel Processing Different?
