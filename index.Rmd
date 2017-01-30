@@ -1,5 +1,5 @@
 --- 
-title: "Spark Social Science Manual"
+title: "Spark for Social Science"
 author: "Research Programming, The Urban Institute"
 date: "January 27, 2017"
 site: bookdown::bookdown_site
@@ -47,7 +47,7 @@ There are four GitHub repositories associated with this project:
 - [Spark Social Science](https://github.com/UrbanInstitute/spark-social-science) -- will walk you through the technical process of launching Spark in Amazon Web Services.  
 - [SparkR-Tutorials](https://github.com/UrbanInstitute/sparkr-tutorials) -- contains a comprehensive introduction to working with Spark using R.  
 - [PySpark-Tutorials](https://github.com/UrbanInstitute/pyspark-tutorials) -- contains a comprehensive introdution to working with Spark using Python.  
-- [Spark Social Science Manual](https://github.com/UrbanInstitute/spark-social-science-manual) -- the GitHub Repository for this book.  
+- [Spark Social for Science](https://github.com/UrbanInstitute/spark-social-science-manual) -- the GitHub Repository for this book.  
 
 This work is generously funded by the [Alfred P. Sloan Foundation](https://www.sloan.org).
 
