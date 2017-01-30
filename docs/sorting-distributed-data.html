@@ -78,9 +78,12 @@
 </ul></li>
 <li class="chapter" data-level="3" data-path="understanding-spark.html"><a href="understanding-spark.html"><i class="fa fa-check"></i><b>3</b> - Understanding Spark</a><ul>
 <li class="chapter" data-level="3.1" data-path="understanding-spark.html"><a href="understanding-spark.html#what-is-apache-spark"><i class="fa fa-check"></i><b>3.1</b> What is Apache Spark?</a></li>
-<li class="chapter" data-level="3.2" data-path="understanding-spark.html"><a href="understanding-spark.html#what-makes-distributed-processing-different"><i class="fa fa-check"></i><b>3.2</b> What Makes Distributed Processing Different?</a></li>
+<li class="chapter" data-level="3.2" data-path="understanding-spark.html"><a href="understanding-spark.html#what-makes-parallel-processing-different"><i class="fa fa-check"></i><b>3.2</b> What Makes Parallel Processing Different?</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="sorting-distributed-data.html"><a href="sorting-distributed-data.html"><i class="fa fa-check"></i><b>4</b> - Sorting Distributed Data</a></li>
+<li class="chapter" data-level="4" data-path="sorting-distributed-data.html"><a href="sorting-distributed-data.html"><i class="fa fa-check"></i><b>4</b> - Sorting Distributed Data</a><ul>
+<li class="chapter" data-level="4.1" data-path="sorting-distributed-data.html"><a href="sorting-distributed-data.html#sorting-in-distributed-computing"><i class="fa fa-check"></i><b>4.1</b> Sorting in Distributed Computing</a></li>
+<li class="chapter" data-level="4.2" data-path="sorting-distributed-data.html"><a href="sorting-distributed-data.html#shuffling-intuition"><i class="fa fa-check"></i><b>4.2</b> Shuffling Intuition</a></li>
+</ul></li>
 <li class="chapter" data-level="5" data-path="econometrics-and-large-scale-data.html"><a href="econometrics-and-large-scale-data.html"><i class="fa fa-check"></i><b>5</b> - Econometrics and Large-scale Data</a><ul>
 <li class="chapter" data-level="5.1" data-path="econometrics-and-large-scale-data.html"><a href="econometrics-and-large-scale-data.html#implications-for-hypothesis-testing"><i class="fa fa-check"></i><b>5.1</b> Implications for Hypothesis Testing</a><ul>
 <li class="chapter" data-level="5.1.1" data-path="econometrics-and-large-scale-data.html"><a href="econometrics-and-large-scale-data.html#statistical-v.-practical-significance"><i class="fa fa-check"></i><b>5.1.1</b> Statistical v. Practical Significance</a></li>
@@ -96,6 +99,7 @@
 <li class="chapter" data-level="7" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>7</b> - Appendix</a><ul>
 <li class="chapter" data-level="7.1" data-path="appendix.html"><a href="appendix.html#unbounded-sample-size-statistical-significance-sketch-of-proof"><i class="fa fa-check"></i><b>7.1</b> Unbounded sample size &amp; statistical significance – sketch of proof</a></li>
 </ul></li>
+<li class="chapter" data-level="8" data-path="glossary-of-terms.html"><a href="glossary-of-terms.html"><i class="fa fa-check"></i><b>8</b> - Glossary of Terms</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -118,12 +122,25 @@
             <section class="normal" id="section-">
 <div id="sorting-distributed-data" class="section level1">
 <h1><span class="header-section-number">Chapter 4</span> - Sorting Distributed Data</h1>
-<p>When working with datasets of sizes traditionally seen in social science research, sorting the data by some value rule is a relatively easy task. When all of the data is in the memory of one system, sorting rows is close to trivial.</p>
-<p>Massive data in a distributed environment, in which perhaps many millions of observations are distributed across hundreds of machines, sorting that data becomes an enormously expensive operation. Spark needs to first consider your sorting criteria (e.g. dates, alphabetical, numerical, ascending, descending), then search through all of the systems in the cluster to figure out what and where the first and last values are, what the intervals are between values and whether there are duplicates or not. From there it has to estimate where all of the data should go and where to shift the values of which this data will take the spot.</p>
+<div id="sorting-in-distributed-computing" class="section level2">
+<h2><span class="header-section-number">4.1</span> Sorting in Distributed Computing</h2>
+<p>When working with datasets of sizes traditionally seen in social science research, sorting the data by some variable is an easy task. Since all of the data is in the memory of one computer, this is usually a computationally trivial task.</p>
+<p>However, when working with massive data in a distributed environment, in which perhaps many millions of observations are distributed across hundreds of machines, sorting data becomes an enormously expensive operation. Intuitively, this is because your data is <strong>partitioned</strong>. This means that the rows of data are spread in groups across all the different machines in your cluster. In order to perform the sort, Spark must execute a <strong>shuffle</strong> operation, which repartitions the data, moving much of it between the machines of the cluster.</p>
+<p>Notably, sorts (and therefore shuffles) occur far more often than you might realize, given that they are essential part of other common operations. For instance, sorting occurs during:</p>
+<ul>
+<li>Merging</li>
+<li>Grouped Aggregations</li>
+<li>Calculating Quantiles</li>
+</ul>
+</div>
+<div id="shuffling-intuition" class="section level2">
+<h2><span class="header-section-number">4.2</span> Shuffling Intuition</h2>
+<p>Spark needs to first consider your sorting criteria (e.g. dates, alphabetical, numerical, ascending, descending), then search through all of the systems in the cluster to figure out what and where the first and last values are, what the intervals are between values and whether there are duplicates or not. From there it has to estimate where all of the data should go and where to shift the values of which this data will take the spot.</p>
 <p>If January is located next to December in the ranking of month values and Spark finds that February should be in that ranking, for example, it needs to determine where to shift December before the task can be completed. Each observation takes up space in memory: Spark cannot simply hold every observation in a single machine until it identifies where a particular observations should be placed. The data, therefore, becomes more spread out when information is “shuffled” since Spark holds observations elsewhere until it determines where they should be placed.</p>
 <p>Additionally, when the data is on multiple machines, shuffling can force data onto the hard drive in the course of it being shifted by Spark. Hard drive traffic is much slower than simply moving data around within memory, as might happen when you sort an Excel column.</p>
 <p>Any operation that causes a shuffling of data, or a “shuffle,” can be very costly in terms of processing power, hard drive traffic and system memory. Researchers should understand that several tasks that can be performed in Spark require a shuffle, and that this shuffling may be obscured. Spark operations that do require a shuffle include, for example, are joining datasets on equal values of some specified column and finding unique values of a column. Some shuffling is often inevitable; just note that shuffles will be one of the largest drivers of how long your operations take to finish.</p>
 
+</div>
 </div>
             </section>
 
