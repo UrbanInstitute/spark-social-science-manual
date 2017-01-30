@@ -2,13 +2,13 @@
 
 The open source Apache Spark project has generously taken the time to support use in R and Python, far more accessible languages than what Spark itself is written in (Scala).
 
-Below are links to tutorials written by the Urban Institute Research Programming team to help guide researchers through tasks typically performed by social scientists, but driven by Spark:
+Below are links to tutorials written by the Urban Institute Research Programming team to help guide researchers through tasks typically performed by social scientists, but driven by Spark. As you read through this book, you will see hyperlinks for [SparkR](https://github.com/UrbanInstitute/sparkr-tutorials) and [PySpark](https://github.com/UrbanInstitute/pyspark-tutorials) that will take you to code relevant to the concept being discussed.
 
-*  PySpark (Python):	https://github.com/UrbanInstitute/pyspark-tutorials
+*  SparkR (R):   https://github.com/UrbanInstitute/sparkr-tutorials
 
-*  SparkR (R):		https://github.com/UrbanInstitute/sparkr-tutorials
+*  PySpark (Python):   https://github.com/UrbanInstitute/pyspark-tutorials
 
-**Note**: The tutorials linked above assume that readers have some familiarity with Python and R, respectively.
+**Note**: The tutorials linked above assume that readers have some familiarity with R and Python, respectively.
 
 ## What About Stata and SAS?
 
