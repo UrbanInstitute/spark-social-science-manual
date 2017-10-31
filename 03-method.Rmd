@@ -2,19 +2,17 @@
 
 ## What is Apache Spark?
 
-Spark is a cluster computing platform, which essentially means it is going to allow us to easily work with groups of computers. Spark is much improved over its predecessor, MapReduce, in that it enables in-memory computation (in addition to parallel processing) distributed across many computers. This, along with other innovations, makes Spark very, very fast. As a result, Spark is thus excellently suited for interactively analyzing massive datasets.
+Spark is a cluster computing platform, which means it effectively works over groups of smaller computers. Spark is much improved over its predecessor, MapReduce, in that it enables in-memory computation (in addition to parallel processing) on each computer in the group, called nodes. This, along with other innovations, makes Spark very, very fast. As a result, Spark is thus excellently suited for interactively analyzing massive datasets.
 
-Spark obscures a huge amount of the complexity of working with a cluster of computers for data analysis. Even when the code can look very familiar, it's critical to understand how some of the processing and calculations are happening under the hood. The differences in the distributed framework have important implications for what analyses are possible and what code is efficient. This Chapter discussing the intuition and implications of cluster computing and parallel processing, while the next chapters explore sorting and advanced statistical analyses.
+Spark obscures a huge amount of the complexity of working with a cluster of computers for data analysis. Even when the code can look very familiar, it's critical to understand how some of the processing and calculations are happening under the hood. The differences in the distributed framework have important implications for what analyses are possible and what code is efficient. This chapter discusses the intuition and implications of cluster computing and parallel processing, while the next chapters explore sorting and advanced statistical analyses.
 
 ## What Makes Cluster Computing Different?
 
-Persistence / Caching 
-Master Node / Worker Nodes - show visual.
+On a traditional desktop computer or server, there is one physical storage device (the hard drive), one block of memory (RAM), and one or more processors (CPUs), and any portion of the data in this environment can easily be interacted with the others. This makes operations like sorting, merging, or performing matrix algebra, relatively easy.
 
+In a simple example of a system using distributed clusters, imagine a dataset split into ten pieces, loaded on a cluster with ten computers similar to a traditional desktop.  Each computer in the cluster (called a "node") holds a single tenth of the whole.  If you were to somehow sit at one of these nodes and start using it like a regular computer, you would have no access to the other nine-tenths of the data on the other nodes.
 
-## What Makes Parallel Processing Different?
-
-The analysis that researchers can perform, and the ways in which that analysis is carried out, can change significantly when data is too large to be loaded onto a single machine.  As a simple example, let’s examine how one would calculate the standard deviation of a numerical variable in a distributed environment.
+To these ten computers, we then add a single "master node".  The master node holds none of the data, but can send and commands and receive data from the ten nodes that do. This architecture, when expanded to *n* nodes, is what allows for massive amounts of data to be analyzed.  However, it can greatly alter the operations that happen "under the hood" in a distributed system, relative to the single-computer setup.  As a simple example, let’s examine how one would calculate the standard deviation of a numerical variable in a distributed environment.
 
 
 We have one column of data with 22 rows of values.  Assume for simplicity that this data is too large to fit onto a single machine and is, therefore, distributed across five machines as follows:
@@ -34,10 +32,10 @@ Spark begins calculating the standard deviation of the variable by directing eac
 |**Sum**        | $$40$$        | $$55$$        | $$15$$        | $$100$$       | $$40$$        |
 |**Count**      | $$4$$         | $$5$$         | $$3$$         | $$5$$         | $$5$$         |
 
-Each machine then returns its sum and count to the central manager (called the “master”).  The **reduced** data described in the table above is sufficiently small to fit onto the single master machine.  Even a massive cluster with 8,000 machines would aggregate only 16,000 values, a number which a single machine could easily hold.
+Each machine then returns its sum and count to the master node.  The **reduced** data described in the table above is sufficiently small to fit onto the single master machine.  Even a massive cluster with 8,000 machines would return only 16,000 aggregated values, a quantity that a single machine can easily work with.
 
 
-The master then uses the reduced data to calculate and return the mean for the entire column (equal to 11.36) to each machine, which then square the difference for each value:
+The master then uses the reduced data to calculate and return the mean for the entire column (equal to 11.36) to each node, which then square the difference for each value:
 
 
 | Machine 1 | Machine 2 | Machine 3 | Machine 4 | Machine 5 |
@@ -48,7 +46,7 @@ The master then uses the reduced data to calculate and return the mean for the e
 | $$(10-11.36)^2$$ |	$$(6-11.36)^2$$ |	           | $$(11-11.36)^2$$ |	$$(10-11.36)^2$$ |
 |	          | $$(17-11.36)^2$$ |		           | $$(9-11.36)^2$$ |	$$(10-11.36)^2$$ |
 
-After this there is another sum and count operation that is returned to the master machine:
+After this there is another sum and count operation that is returned to the master node:
 
 |           | Machine 1 | Machine 2 | Machine 3 | Machine 4 | Machine 5 |
 | --------- | --------- | --------- | --------- | --------- | --------- |
@@ -60,4 +58,6 @@ After this there is another sum and count operation that is returned to the mast
 |**Sum** |	$$49.3984$$ | $$302.648$$ |	$$123.3488$$ |	$$793.248$$ |	$$298.448$$ |
 |**Count** |	$$4$$	| $$5$$	| $$3$$	| $$5$$	| $$5$$ |
 
-The master machine then uses these values to calculate the mean again, followed by the square root, resulting in the standard deviation of 8.44.  While computing the standard deviation of a numerical variable is a relatively trivial operation for Spark to complete, other, more involved operations clearly could become difficult or even impossible to complete in a distributed environment.^[This is a fairly simple illustration of how Spark generally works behind the scenes:  some command is sent to each machine to *map* to the data it holds, then the results are *reduced* and returned to the master machine.  In fact, the aptly-named predecessor to Spark is called MapReduce.]
+The master node then uses these values to calculate the mean again, followed by the square root, resulting in the standard deviation of 8.44.  
+
+While computing the standard deviation of a numerical variable is a relatively trivial operation for Spark to complete, other, more involved operations clearly could become difficult or even impossible to complete in a distributed environment.^[This is a fairly simple illustration of how Spark generally works behind the scenes:  some command is sent to each machine to *map* to the data it holds, then the results are *reduced* and returned to the master machine.  In fact, the aptly-named predecessor to Spark is called MapReduce.]
