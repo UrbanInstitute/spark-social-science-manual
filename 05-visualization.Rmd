@@ -2,27 +2,21 @@
 
 ## Visualization Process
 
-While Spark is an excellent framework for the analysis of big data, it should be used purely as a data manipulation and analytical tool to enable visualization, rather than doing the visualization itself. Since R and Python both have powerful and extensive libraries for data visualization, there is a substantial advantage in creating graphics from local data on the master node.  
+While Spark is an excellent framework for the analysis of big data, big data comes with some inherent visualization issues that Spark does not surmount. Generally, it is best to use Spark purely as a data manipulation and analytical tool to enable visualization of aggregates on other platforms, rather than doing the visualization itself. Since R and Python both have powerful and extensive libraries for data visualization, there is a substantial advantage in creating graphics from local data on the master node, or on data you reduce and export to a desktop.  
 
-It's possible that these visualization tools will eventually be implemented directly into Spark, but unlikely that they will offer as thorough functionality as the non-distributed versions. By preparing data in Spark, then bringing 
+It's possible that these visualization tools will eventually be implemented directly into Spark, but unlikely that they will offer as thorough functionality as the non-distributed versions. For instance, the [ggplot2.SparkR](https://github.com/SKKU-SKT/ggplot2.SparkR) project is promising, and does offers a limited subset of R's ggplot2 geoms [directly in SparkR](https://github.com/UrbanInstitute/sparkr-tutorials/blob/master/visualizations.md). However, the package has not been updated regularly and the coverage of the graph types is not enough to be sufficent on its own.
 
-For instance, the [ggplot2.SparkR](https://github.com/SKKU-SKT/ggplot2.SparkR) project is promising, and does offers a limited subset of R's ggplot2 geoms [directly in SparkR](https://github.com/UrbanInstitute/sparkr-tutorials/blob/master/visualizations.md). However, the package has not been updated for eight months and the coverage of the graph types is not enough to be sufficent on its own.
-
-Instead of relying on these packages, it is better to invest in understanding important graph types well enough to split the graphing process into a data processing step followed by a visualizing process. This chapter will further explain this process, and cover important graph types, with links to examples in the SparkR and PySpark tutorials.
-
-## 
-
+Instead of relying on these packages, it is better to invest in understanding important graph types well enough to split the graphing process into a data processing step followed by a visualizing process.
 
 
 ## Recommended Charts
 
 
+Avoid graphs of equivalence - in which one observation becomes one visual mark on your graph. This includes, for example, the common bivariate scatter plot.  If your data is big then you probably have a lot of observations; plotting a billion dots on a graph will almost always obscure anything of interest behind a large blob of color.
 
-Avoid graphs of equivalence - in which one observation becomes one visual mark on your graph.  
+If you do decide to work with graphs of equivalence, keep in mind jittering and transparency as options to make more of your data meaningfully visible. Transparency still does not work for most big data, however. Most plotting programs have what is called an "alpha" setting, which is a fraction between 0 and 1. This tells the graph how many overlapping dots are needed to form full opacity.  That is, an alpha of .1 means that 10 overlapping dots will equal 100% opacity. It can be a reasonable solution with normal data, but if a million dots may be overlapping in any given spot, setting alpha to .000001 means most levels of overlap will essentially be invisible.
 
-If you do decide to work with graphs of equivalence, keep in mind jittering and transparency as options to make more of your data meaningfully visible. 
-
-
+Combining Sparks utility for subsetting and aggregating big data with a later visualization step is often a good strategy. If you have a hundred million observations in the United States, a scatter plot is probably useless at conveying any information. But if you first aggregate by all fifty states, or by time periods, then plot the aggregates using a non-distributed plotting library, your graphs can be quite useful.
 
 
 

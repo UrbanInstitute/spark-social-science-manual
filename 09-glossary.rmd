@@ -2,26 +2,26 @@
 
 * __Caching__ - 
 
-* __Computer Memory__ - 
+* __Computer Memory__ - A place data is stored on a computer that is much faster than physical storage devices (hard drives). However, it is also significantly smaller, more expensive, and requires constant power to hold the data.
 
-* __Directed Acylic Graph__ 
+* __Directed Acylic Graph__ -
 
-* __Distributed Computing__ 
+* __Distributed Computing__ - Using multiple smaller systems working together, generally to handle data or processes that are prohibitively large for a single system to handle in a cost-effective maner.
 
-* __LM-BFGS__ - 
+* __LM-BFGS__ - Limited Memory - Broyden–Fletcher–Goldfarb–Shanno algorithm. A common way to compute models on big data.
 
-* __MapReduce__ - 
+* __MapReduce__ - The conceptual predecessor to Spark, developed and made open source by Google.
 
-* __Master Node__ - 
+* __Master Node__ - A system in a Spark cluster that manages some number of worker nodes, rather than holding and working on its own data.
 
-* __Parallel Processing__ - 
+* __Parallel Processing__ - The use of multiple CPUs or CPU cores to perform operations simultaneously.
 
 * __Partition__ - 
 
-* __Persistance__ - 
+* __Persistance__ - Due to Spark's "lazy"" computing, commands are chained between the loaded data and the eventual output, and are only processed in the final stage. In cases where that chain needs to branch to multiple outputs, Spark can be told to "persist" the intermediate stage where the branch happens. This allows it to avoid re-processing all the stages before the branch for each output. For example, if a chain looks like this: *Load Data -> Step A -> Step B -> Step C -> Show Output*, then steps A, B and C will only be computed when "show output" is reached. If a second branch is added: *Load Data -> Step A -> Step B -> Step D -> Show Output*, then calling "persist" after step B will allow Spark to only calculate steps A and B once.
 
-* __Shuffle__ - 
+* __Shuffle__ - An operation in Spark that forces data to be moved between partitions, nodes, and possibly memory and physical storage.
 
-* __Stochastic Gradient Descent (SGD)__ - 
+* __Stochastic Gradient Descent (SGD)__ - An iterative process for finding global minimums, used in some large data processes.
 
-* __Worker Node__ - 
+* __Worker Node__ - One of the systems in a Spark cluster that uses its resources to hold data, and performs operations on that data, under the direction of a master node.
